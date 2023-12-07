@@ -8,7 +8,7 @@ export default function Index() {
 
   useEffect(() => {
     if (router.pathname === '/dashboard') {
-      router.push('/dashboard/Attribute');
+      router.push('/dashboard/ListBot');
     }
   });
 

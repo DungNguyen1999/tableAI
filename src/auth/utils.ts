@@ -2,7 +2,6 @@
 import { PATH_AUTH } from '../routes/paths';
 // utils
 import axios from '../utils/axios';
-
 // ----------------------------------------------------------------------
 
 function jwtDecode(token: string) {
@@ -65,7 +64,8 @@ export const setSession = (accessToken: string | null) => {
 
     // This function below will handle when token is expired
     const { exp } = jwtDecode(accessToken); // ~3 days by minimals server
-    tokenExpired(exp);
+    console.log('exp', exp);
+    // tokenExpired(exp);
   } else {
     localStorage.removeItem('accessToken');
 

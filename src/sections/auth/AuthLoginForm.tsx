@@ -1,17 +1,16 @@
 import { useState } from 'react';
 import * as Yup from 'yup';
-// form
 import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/router';
 import { yupResolver } from '@hookform/resolvers/yup';
-// @mui
 import { Link, Stack, Alert, IconButton, InputAdornment } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
-// auth
-import { useAuthContext } from '../../auth/useAuthContext';
-// components
+import { PostLogin } from 'src/Apis/Api';
+
 import Iconify from '../../components/iconify';
 import FormProvider, { RHFTextField } from '../../components/hook-form';
-
+// import { PATH_DASHBOARD } from 'src/routes/paths';
+import { useAuthContext } from '../../auth/useAuthContext';
 // ----------------------------------------------------------------------
 
 type FormValuesProps = {
@@ -21,23 +20,14 @@ type FormValuesProps = {
 };
 
 export default function AuthLoginForm() {
-  const { login } = useAuthContext();
-
   const [showPassword, setShowPassword] = useState(false);
-
   const LoginSchema = Yup.object().shape({
     email: Yup.string().required('Email is required').email('Email must be a valid email address'),
     password: Yup.string().required('Password is required'),
   });
-
-  const defaultValues = {
-    email: 'demo@minimals.cc',
-    password: 'demo1234',
-  };
-
+  const { login } = useAuthContext();
   const methods = useForm<FormValuesProps>({
     resolver: yupResolver(LoginSchema),
-    defaultValues,
   });
 
   const {
@@ -48,6 +38,21 @@ export default function AuthLoginForm() {
   } = methods;
 
   const onSubmit = async (data: FormValuesProps) => {
+    // try {
+    //   const res = await PostLogin(data);
+    //   if (res?.status === 200) {
+    //     console.log('==s', data);
+    //     localStorage.setItem('token', res?.data?.token);
+    //     replace('/dashboard');
+    //   }
+    // } catch (error) {
+    //   reset();
+    //   setError('afterSubmit', {
+    //     ...error,
+    //     message: error.message,
+    //     error,
+    //   });
+    // }
     try {
       await login(data.email, data.password);
     } catch (error) {
@@ -84,7 +89,7 @@ export default function AuthLoginForm() {
           }}
         />
       </Stack>
-
+      <div> VH4Vv8PCcMCK</div>
       <Stack alignItems="flex-end" sx={{ my: 2 }}>
         <Link variant="body2" color="inherit" underline="always">
           Forgot password?

@@ -41,7 +41,7 @@ export const StyledItem = styled(ListItemButton, {
     flexShrink: 0,
     display: 'inline-flex',
     textTransform: 'capitalize',
-    padding: theme.spacing(0, 0.75),
+    padding: theme.spacing(3),
     color: theme.palette.text.secondary,
     borderRadius: theme.shape.borderRadius,
     height: NAV.H_DASHBOARD_ITEM_HORIZONTAL,

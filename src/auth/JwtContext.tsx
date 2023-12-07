@@ -137,20 +137,39 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   // LOGIN
   const login = useCallback(async (email: string, password: string) => {
-    const response = await axios.post('/api/account/login', {
-      email,
-      password,
-    });
-    const { accessToken, user } = response.data;
-
-    setSession(accessToken);
-
-    dispatch({
-      type: Types.LOGIN,
-      payload: {
-        user,
-      },
-    });
+    try {
+      const response = await axios.post('/login', {
+        email,
+        password,
+      });
+      console.log('response', response);
+      const { token  } = response.data;
+      setSession(token);
+      const user = {
+         id: "8864c717-587d-472a-929a-8e5f298024da-0",
+        displayName: "Jaydon Frankie",
+        email: "demo@minimals.cc",
+        password: "demo1234",
+        photoURL: "https://api-dev-minimal-v4.vercel.app/assets/images/avatars/avatar_default.jpg",
+        phoneNumber: "+40 777666555",
+        country: "United States",
+        address: "90210 Broadway Blvd",
+        state: "California",
+        city: "San Francisco",
+        zipCode: "94116",
+        about: "Praesent turpis. Phasellus viverra nulla ut metus varius laoreet. Phasellus tempus.",
+        role: "admin",
+        isPublic: true
+      }
+      dispatch({
+        type: Types.LOGIN,
+        payload: {
+          user ,
+        },
+      });
+    } catch (err) {
+      console.log(err);
+    }
   }, []);
 
   // REGISTER
