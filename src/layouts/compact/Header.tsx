@@ -2,11 +2,12 @@
 import { useTheme } from '@mui/material/styles';
 import { AppBar, Toolbar, Box, BoxProps, Link } from '@mui/material';
 // config
+import Image from 'next/image';
 import { HEADER } from '../../config-global';
 // utils
 import { bgBlur } from '../../utils/cssStyles';
 // components
-import Logo from '../../components/logo';
+import logo from '../../../public/assets/images/home/logo.png';
 
 // ----------------------------------------------------------------------
 
@@ -38,7 +39,7 @@ export default function Header({ isOffset }: Props) {
           }),
         }}
       >
-        <Logo />
+        <Image src={logo} alt="Logo" />
 
         <Link variant="subtitle2" color="inherit">
           Need Help?
