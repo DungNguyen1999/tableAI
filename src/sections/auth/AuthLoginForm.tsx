@@ -73,6 +73,7 @@ export default function AuthLoginForm() {
         {!!errors.afterSubmit && <Alert severity="error">{errors.afterSubmit.message}</Alert>}
 
         <RHFTextField name="email" label="Email address" />
+        <div>cocoadminai@cocogame.vip</div>
 
         <RHFTextField
           name="password"
