@@ -8,6 +8,12 @@ export const StyledWrap = styled(Box)(() => ({
   gap: 8,
   display: 'grid',
   gridTemplateColumns: 'repeat(2, 1fr)',
+
+  button: {
+    border: 'none',
+    outline: 'none',
+    background: 'none',
+  }
 }));
 
 // ----------------------------------------------------------------------

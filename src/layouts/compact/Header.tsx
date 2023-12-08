@@ -41,9 +41,9 @@ export default function Header({ isOffset }: Props) {
       >
         <Image src={logo} alt="Logo" />
 
-        <Link variant="subtitle2" color="inherit">
+        {/* <Link variant="subtitle2" color="inherit">
           Need Help?
-        </Link>
+        </Link> */}
       </Toolbar>
 
       {isOffset && <Shadow />}

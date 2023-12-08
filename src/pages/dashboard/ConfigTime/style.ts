@@ -11,7 +11,6 @@ const ConfigTimeWrapper = styled(Box)(({ theme }) => ({
 
   th: {
     fontSize: 20,
-    color: 'white',
     textAlign: 'center',
   },
 
@@ -31,7 +30,7 @@ const ConfigTimeWrapper = styled(Box)(({ theme }) => ({
   button: {
     fontSize: 20,
     padding: '15px 40px',
-  }
+  },
 }));
 
 export default ConfigTimeWrapper;

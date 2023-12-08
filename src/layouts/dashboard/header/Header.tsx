@@ -1,8 +1,9 @@
 // @mui
 import { useTheme } from '@mui/material/styles';
-import { Stack, AppBar, Toolbar, IconButton } from '@mui/material';
+import { Stack, AppBar, Toolbar, IconButton, Box, Typography } from '@mui/material';
 // utils
 import Image from 'next/image';
+import ModeOptions from 'src/components/settings/drawer/ModeOptions';
 import { bgBlur } from '../../../utils/cssStyles';
 // hooks
 import useOffSetTop from '../../../hooks/useOffSetTop';
@@ -40,33 +41,39 @@ export default function Header({ onOpenNav }: Props) {
   const isOffset = useOffSetTop(HEADER.H_DASHBOARD_DESKTOP) && !isNavHorizontal;
 
   const renderContent = (
-    <>
+    <Box width='100%' display='flex' justifyContent='space-between' marginTop='10px'>
       <Image src={logo} alt="Logo" width={50}/>
 
-      {!isDesktop && (
+      {/* {!isDesktop && (
         <IconButton onClick={onOpenNav} sx={{ mr: 1, color: 'text.primary' }}>
           <Iconify icon="eva:menu-2-fill" />
         </IconButton>
-      )}
+      )} */}
 
       {/* <Searchbar /> */}
 
-      <Stack
+      <Box display='flex' alignItems='center' gap= '10px'>
+        <Typography color='gray'>Mode:</Typography>
+        <ModeOptions />
+      </Box>
+
+      <AccountPopover />
+
+
+      {/* <Stack
         flexGrow={1}
         direction="row"
         alignItems="center"
         justifyContent="flex-end"
         spacing={{ xs: 0.5, sm: 1.5 }}
       >
-        {/* <LanguagePopover /> */}
+        <LanguagePopover />
 
-        {/* <NotificationsPopover /> */}
+        <NotificationsPopover />
 
-        {/* <ContactsPopover /> */}
-
-        <AccountPopover />
-      </Stack>
-    </>
+        <ContactsPopover />
+      </Stack> */}
+    </Box>
   );
 
   return (

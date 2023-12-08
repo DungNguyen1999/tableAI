@@ -34,7 +34,6 @@ const ListBotWrapper = styled(Box)(({ theme }) => ({
 
   th: {
     fontSize: 20,
-    color: 'white',
     textAlign: 'center',
   },
 
